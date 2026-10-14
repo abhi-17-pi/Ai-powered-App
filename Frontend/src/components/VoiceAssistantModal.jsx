@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import SoundWave from "./SoundWave";
+import { API_BASE_URL } from "../config";
 
 export default function VoiceAssistantModal({
   isOpen,
@@ -91,7 +92,7 @@ export default function VoiceAssistantModal({
 
       // Auto-create conversation if needed
       if (!activeConversationId) {
-        const convRes = await fetch("http://localhost:8000/api/conversations/", {
+        const convRes = await fetch(`${API_BASE_URL}/api/conversations/`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "include",
@@ -108,8 +109,8 @@ export default function VoiceAssistantModal({
       // Send to backend
       const response = await fetch(
         isImageRequest
-          ? "http://localhost:8000/api/images/generate/"
-          : "http://localhost:8000/api/chat/",
+          ? `${API_BASE_URL}/api/images/generate/`
+          : `${API_BASE_URL}/api/chat/`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import SoundWave from "./SoundWave";
+import { API_BASE_URL } from "../config";
 
 const IMAGE_REQUEST_PATTERN = /\b(?:create|generate|make|draw|design|illustrate|paint)\b[\s\S]{0,80}\b(?:image|picture|photo|illustration|artwork|art)\b|\b(?:image|picture|photo|illustration)\s+of\b/i;
 
@@ -94,7 +95,7 @@ export default function ChatWindow({
     const loadConversation = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/conversations/${conversationId}/`,
+          `${API_BASE_URL}/api/conversations/`,
           { credentials: "include" }
         );
         const data = await response.json();
@@ -129,7 +130,7 @@ export default function ChatWindow({
       // Automatically create a conversation if none exists
       if (!activeConversationId) {
         const conversationResponse = await fetch(
-          "http://localhost:8000/api/conversations/",
+          `${API_BASE_URL}/api/conversations/`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -159,8 +160,8 @@ export default function ChatWindow({
       // Send image prompts to the image endpoint; all other messages use chat.
       const response = await fetch(
         shouldGenerateImage
-          ? "http://localhost:8000/api/images/generate/"
-          : "http://localhost:8000/api/chat/",
+          ? `${API_BASE_URL}/api/image/`
+          : `${API_BASE_URL}/api/chat/`,
         {
         method: "POST",
         headers: { "Content-Type": "application/json" },

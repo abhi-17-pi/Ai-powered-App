@@ -7,6 +7,7 @@ import Register from "./Register";
 import Login from "./Login";
 import { useVoiceAssistant } from "./hooks/useVoiceAssistant";
 import "./App.css";
+import API_BASE_URL from "./api";
 
 function App() {
   const [conversationId, setConversationId] = useState(null);
@@ -36,7 +37,7 @@ function App() {
 
   const checkCurrentUser = useCallback(async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/auth/me/", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/me/`, {
         credentials: "include",
       });
 
@@ -73,7 +74,7 @@ function App() {
 
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/auth/logout/", {
+      const response = await fetch(`${API_BASE_URL}/api/auth/logout/`, {
         method: "POST",
         credentials: "include",
       });

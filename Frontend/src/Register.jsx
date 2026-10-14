@@ -1,4 +1,5 @@
 import { useState } from "react";
+import API_BASE_URL from "./api";
 
 function Register({ onClose, onRegisterSuccess }) {
   const [username, setUsername] = useState("");
@@ -13,7 +14,7 @@ function Register({ onClose, onRegisterSuccess }) {
 
     try {
       const response = await fetch(
-        "http://localhost:8000/api/auth/register/",
+        `${API_BASE_URL}/api/auth/register/`,
         {
           method: "POST",
           headers: {

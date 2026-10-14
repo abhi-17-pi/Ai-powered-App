@@ -1,4 +1,5 @@
 import { useEffect, useState, useMemo, useCallback, useRef } from "react";
+import { API_BASE_URL } from "../config";
 
 export default function Sidebar({
   conversationId,
@@ -37,7 +38,7 @@ export default function Sidebar({
   const loadConversations = useCallback(async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/api/conversations/list/",
+        `${API_BASE_URL}/api/conversations/`,
         { credentials: "include" }
       );
       const data = await response.json();
@@ -57,7 +58,7 @@ export default function Sidebar({
   const createNewChat = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/api/conversations/",
+        `${API_BASE_URL}/api/conversations/`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -82,7 +83,7 @@ export default function Sidebar({
 
     try {
       const response = await fetch(
-        `http://localhost:8000/api/conversations/${id}/delete/`,
+        `${API_BASE_URL}/api/conversations/${id}/`,
         {
           method: "DELETE",
           credentials: "include",
