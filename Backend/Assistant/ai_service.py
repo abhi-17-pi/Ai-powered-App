@@ -13,9 +13,9 @@ def reload_env():
     base_dir = Path(__file__).resolve().parent.parent
     env_file = base_dir / ".env"
     if env_file.exists():
-        load_dotenv(dotenv_path=env_file, override=True)
+        load_dotenv(dotenv_path=env_file, override=False)
     else:
-        load_dotenv(override=True)
+        load_dotenv(override=False)
 
 
 def get_ai_client_and_model(custom_api_key=None, custom_model=None, custom_provider=None):
