@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import SoundWave from "./SoundWave";
-import { API_BASE_URL } from "../config";
-
+import API_BASE_URL from "../api";
 export default function VoiceAssistantModal({
   isOpen,
   onClose,

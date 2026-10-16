@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import SoundWave from "./SoundWave";
-import { API_BASE_URL } from "../config";
-
+import API_BASE_URL from "../api";
 const IMAGE_REQUEST_PATTERN = /\b(?:create|generate|make|draw|design|illustrate|paint)\b[\s\S]{0,80}\b(?:image|picture|photo|illustration|artwork|art)\b|\b(?:image|picture|photo|illustration)\s+of\b/i;
 
 // ------------------------------------
