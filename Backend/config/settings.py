@@ -180,6 +180,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:5173",
     "http://127.0.0.1:5174",
     "https://ai-powered-app-sigma.vercel.app",
+    "https://ai-powered-aclzqz98z-abhishek-0a8f.vercel.app",
 ]
 
 CORS_ALLOW_CREDENTIALS = True
@@ -190,5 +191,8 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:5173",
     "http://127.0.0.1:5174",
     "https://ai-powered-app-sigma.vercel.app",
+    "https://ai-powered-aclzqz98z-abhishek-0a8f.vercel.app",
 ]
+    
+
 
